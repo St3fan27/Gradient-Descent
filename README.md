@@ -1,63 +1,63 @@
-# Optimizare prin Gradient Descent pentru Regresia Liniară Multiplă
+# Optimization via Gradient Descent for Multiple Linear Regression
 
-## Descriere
-Acest proiect conține o implementare de la zero a algoritmului **Gradient Descent** (Coborârea pe gradient) în Python, utilizat pentru antrenarea unui model de Regresie Liniară Multiplă. Scriptul generează date sintetice, aplică algoritmul de optimizare pentru a găsi parametrii ideali (ponderile și bias-ul) și vizualizează procesul de învățare (scăderea funcției de cost).
+## Description
+This project contains a from-scratch implementation of the **Gradient Descent** algorithm in Python, used for training a Multiple Linear Regression model. The script generates synthetic data, applies the optimization algorithm to find the ideal parameters (weights and bias), and visualizes the learning process (the decrease of the cost function).
 
-## Funcționalități
-* **Generare Date Sintetice**: Creează un set de date de test cu zgomot adăugat aleator, folosind un set predefinit de ponderi și un bias.
-* **Calculul Funcției de Cost**: Implementează eroarea pătratică medie (Mean Squared Error - MSE) pentru a evalua performanța modelului la fiecare iterație.
-* **Calculul Gradientului**: Determină derivatele parțiale ale funcției de cost în raport cu parametrii modelului.
-* **Buclă de Optimizare**: Actualizează iterativ parametrii modelului pentru a minimiza costul.
-* **Vizualizare**: Folosește `matplotlib` pentru a desena graficele costului în funcție de numărul de iterații, ilustrând convergența algoritmului.
+## Features
+* **Synthetic Data Generation**: Creates a test dataset with randomly added noise, using a predefined set of weights and a bias.
+* **Cost Function Calculation**: Implements the Mean Squared Error (MSE) to evaluate the model's performance at each iteration.
+* **Gradient Calculation**: Determines the partial derivatives of the cost function with respect to the model's parameters.
+* **Optimization Loop**: Iteratively updates the model parameters to minimize the cost.
+* **Visualization**: Uses `matplotlib` to plot the cost against the number of iterations, illustrating the algorithm's convergence.
 
 ---
 
-## Concepte Matematice
+## Mathematical Concepts
 
-Proiectul se bazează pe următoarele ecuații fundamentale:
+The project is based on the following fundamental equations:
 
-**1. Modelul de predicție:**
-Pentru o intrare cu trăsături multiple, predicția se calculează ca produsul scalar dintre vectorul de caracteristici și cel de ponderi, la care se adaugă bias-ul:
+**1. The Prediction Model:**
+For an input with multiple features, the prediction is calculated as the dot product between the feature vector and the weights vector, plus the bias:
 $$f_{\mathbf{w},b}(\mathbf{x}) = \mathbf{w} \cdot \mathbf{x} + b$$
 
-**2. Funcția de Cost (J):**
-Pentru a evalua acuratețea modelului pe un set de date cu $m$ exemple, folosim Eroarea Pătratică Medie:
+**2. The Cost Function (J):**
+To evaluate the model's accuracy on a dataset with $m$ examples, we use the Mean Squared Error:
 $$J(\mathbf{w}, b) = \frac{1}{2m} \sum_{i=1}^{m} (f_{\mathbf{w},b}(\mathbf{x}^{(i)}) - y^{(i)})^2$$
 
-**3. Actualizarea Parametrilor (Gradient Descent):**
-Parametrii sunt actualizați la fiecare pas folosind o rată de învățare $\alpha$:
+**3. Parameter Update (Gradient Descent):**
+The parameters are updated at each step using a learning rate $\alpha$:
 $$w_j = w_j - \alpha \frac{\partial J}{\partial w_j}$$
 $$b = b - \alpha \frac{\partial J}{\partial b}$$
 
 ---
 
-## Cerințe
-Pentru a rula acest proiect, ai nevoie de Python instalat (recomandat Python 3.7+) și de următoarele biblioteci externe:
+## Requirements
+To run this project, you need Python installed (Python 3.7+ recommended) and the following external libraries:
 * `numpy`
 * `matplotlib`
 
-Poți instala dependențele rulând:
+You can install the dependencies by running:
 > pip install numpy matplotlib
 
 ---
 
-## Cum se rulează
-1. Clonează acest repository sau descarcă fișierul `gradient_descent.py`.
-2. Deschide un terminal în directorul în care se află fișierul.
-3. Rulează scriptul:
+## How to Run
+1. Clone this repository or download the `gradient_descent.py` file.
+2. Open a terminal in the directory where the file is located.
+3. Run the script:
 > python gradient_descent.py
 
 ---
 
-## Exemplu de Output
+## Output Example
 
-În consolă vei vedea progresul algoritmului la fiecare 10% din iterații:
+In the console, you will see the algorithm's progress at every 10% of the iterations:
 > Iteration 0
 > Cost    25.50
 > dj_dW: [...]
 > dJ_db: [...]
 > w: [...], b:[...]
 
-La final, scriptul va afișa parametrii găsiți de algoritm în comparație cu cei reali și va deschide o fereastră cu două grafice:
-* **Cost vs. Iteration**: Evoluția funcției de cost pe toată durata antrenării.
-* **Cost vs. Iteration (tail)**: O vedere detaliată (zoom) pe ultimele iterații pentru a observa convergența fină.
+Finally, the script will display the parameters found by the algorithm compared to the true ones and will open a window with two plots:
+* **Cost vs. Iteration**: The evolution of the cost function throughout the entire training process.
+* **Cost vs. Iteration (tail)**: A detailed view (zoom) on the final iterations to observe the fine convergence.
